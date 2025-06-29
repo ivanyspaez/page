@@ -1,0 +1,155 @@
+/* hero.css - estilos de la sección hero */
+
+.s-hero {
+    background-color: var(--color-gray-18);
+    width: 100%;
+    height: 100vh;
+    min-height: calc(25.5 * var(--space));
+    overflow: hidden;
+    position: relative;
+}
+
+.s-hero__bg,
+.s-hero__bg::before,
+.s-hero__bg::after {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    content: "";
+}
+
+.s-hero__bg {
+    background-image: url(../images/header-bg-3000.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.s-hero__bg::before {
+    background: black;
+    opacity: .5;
+}
+
+.s-hero__bg::after {
+    background: linear-gradient(360deg, black 15%, rgba(0, 0, 0, 0) 100%);
+    opacity: .4;
+}
+
+/* -------------------------------------------------------------------
+ * ## hero content container
+ * ------------------------------------------------------------------- */
+.s-hero__content {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 35vh 2rem 12vh;
+    position: relative;
+    flex-direction: column;
+    text-align: left;
+}
+
+.s-hero__content-about {
+    max-width: 855px; /* 35% reduction */
+    margin-left: 2rem;
+}
+
+/* -------------------------------------------------------------------
+ * ## headings
+ * ------------------------------------------------------------------- */
+.s-hero__content h1.nombre {
+    font-size: clamp(2.6rem, 5vw + 1.4rem, 6.3rem); /* 35% reduction */
+    font-weight: 600;
+    line-height: 1;
+    color: white;
+    margin: 0 0 1rem;
+    white-space: nowrap; /* solo h1 sin saltos */
+}
+.s-hero__content h1 .bold-name {
+    font-weight: 800;
+    margin-left: 1rem;
+}
+
+/* -------------------------------------------------------------------
+ * ## description text
+ * ------------------------------------------------------------------- */
+.s-hero__content h3.about {
+    font-family: var(--font-2);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 3.25vw + 1.3rem, 3.1rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem;
+    max-width: 800px;
+    text-align: justify;
+    white-space: normal; /* permitir saltos */
+    filter: brightness(1.05) contrast(1.1);
+}
+.s-hero__content h3 span {
+    color: white;
+    font-weight: 600;
+}
+
+/* -------------------------------------------------------------------
+ * ## social icons & button
+ * ------------------------------------------------------------------- */
+.s-hero__content-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 2rem;
+}
+
+.s-hero__content-social a {
+    color: white;
+    transition: transform 0.3s ease;
+}
+.s-hero__content-social a:hover,
+.s-hero__content-social a:focus {
+    color: var(--color-2-light);
+    transform: scale(1.2);
+}
+
+.boton--download {
+    padding: 0.4rem 1rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+.boton--download:hover,
+.boton--download:focus {
+    background-color: white;
+    color: var(--verde-oliva, #556b2f);
+    cursor: pointer;
+}
+
+/* -------------------------------------------------------------------
+ * ## scrolldown
+ * ------------------------------------------------------------------- */
+.s-hero__scroll {
+    position: absolute;
+    bottom: var(--vspace-1_25);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.s-hero__scroll-link {
+    display: flex;
+    font-family: var(--font-1);
+    font-weight: 400;
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.1rem);
+    text-transform: uppercase;
+    letter-spacing: .4em;
+    color: white;
+}
+
+/* Portrait adjustment */
+@media only screen and (orientation: portrait) {
+    .s-hero__content-about {
+        margin-left: 1rem;
+    }
+}

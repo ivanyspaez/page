@@ -1,0 +1,82 @@
+/* resume.css - estilos de la sección resume */
+
+.s-resume {
+    background-color: white;
+    padding-top: calc(6 * var(--space));
+    padding-bottom: var(--vspace-4);
+    color: var(--color-text-dark); /* Texto oscuro por defecto */
+}
+
+.s-resume__section {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--vspace-0_5);
+    margin-bottom: var(--vspace-1_5);
+}
+
+.s-resume__section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------- 
+ * ## párrafos y textos generales
+ * ------------------------------------------------------------------- */
+.s-resume p {
+    margin-top: 0;
+    margin-bottom: var(--vspace-0_5); /* Separación reducida entre párrafos */
+    line-height: 1.6;
+    color: var(--color-text-dark);
+}
+
+/* ------------------------------------------------------------------- 
+ * ## resume block
+ * ------------------------------------------------------------------- */
+.resume-block {
+    margin-bottom: var(--vspace-1_25);
+}
+
+.resume-block h4 {
+    line-height: 1.080;
+    margin-top: 0;
+    margin-bottom: var(--vspace-0_25);
+    color: var(--color-text-dark); /* Título oscuro */
+}
+
+.resume-block__header-meta {
+    font-family: var(--font-2);
+    font-size: calc(var(--text-size) * 1.1111);
+    font-style: italic;
+    margin-top: -.4rem;
+    margin-bottom: var(--vspace-0_5);
+    color: var(--color-text-dark); /* Meta oscuro */
+}
+
+.resume-block__header-date {
+    display: inline-block;
+    font-family: var(--font-1);
+    font-size: var(--text-sm);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--color-text-dark); /* Fecha oscura */
+}
+
+.resume-block__header-date::before {
+    content: "\2022";
+    color: var(--color-text-dark);
+    margin-right: .2rem;
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * resume
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 800px) {
+    .s-resume {
+        padding-top: var(--vspace-4);
+    }
+    .s-resume__section .column:first-child {
+        text-align: center;
+    }
+}

@@ -1,0 +1,199 @@
+:root {
+  --btn-bg: #ffffff;
+  --btn-text: #111111;
+  --btn-border: #111111;
+  --btn-radius: 8px;
+  --btn-hover-bg: #556b2f; /* verde oliva */
+  --btn-hover-text: #ffffff;
+}
+
+.btn--download {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 2px solid var(--btn-border);
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.btn--download:hover,
+.btn--download:focus {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  border-color: var(--btn-hover-bg);
+  cursor: pointer;
+}
+
+
+
+/* button primary
+ * ------------------------------------------------- */
+.btn.btn--primary, 
+button.btn--primary, 
+input[type="submit"].btn--primary, 
+input[type="reset"].btn--primary, 
+input[type="button"].btn--primary {
+    background: var(--color-btn-primary);
+    border-color: var(--color-btn-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.btn.btn--primary:hover, 
+button.btn--primary:hover, 
+input[type="submit"].btn--primary:hover, 
+input[type="reset"].btn--primary:hover, 
+input[type="button"].btn--primary:hover, 
+.btn.btn--primary:focus, 
+button.btn--primary:focus, 
+input[type="submit"].btn--primary:focus, 
+input[type="reset"].btn--primary:focus, 
+input[type="button"].btn--primary:focus {
+    background: var(--color-btn-primary-hover);
+    border-color: var(--color-btn-primary-hover);
+    color: var(--color-btn-primary-hover-text);
+}
+
+/* button modifiers
+ * ------------------------------------------------- */
+.btn.h-full-width, button.h-full-width {
+    width: 100%;
+    margin-right: 0;
+}
+
+.btn--small, button.btn--small {
+    --btn-height: calc(var(--vspace-btn) - 1.6rem);
+}
+
+.btn--medium, button.btn--medium {
+    --btn-height: calc(var(--vspace-btn) + .8rem);
+}
+
+.btn--large, button.btn--large {
+    --btn-height: calc(var(--vspace-btn) + 1.6rem);
+}
+
+.btn--stroke, button.btn--stroke {
+    background: transparent !important;
+    border: 0.2rem solid var(--color-btn-stroke);
+    color: var(--color-btn-stroke-text);
+}
+
+.btn--stroke:hover, button.btn--stroke:hover {
+    background: var(--color-btn-stroke-hover) !important;
+    border: 0.2rem solid var(--color-btn-stroke-hover);
+    color: var(--color-btn-stroke-hover-text);
+}
+
+.btn--pill, button.btn--pill {
+    padding-left: 3.2rem !important;
+    padding-right: 3.2rem !important;
+    border-radius: 1000px !important;
+}
+
+
+/* =================================================================== 
+ * # additional components
+ *
+ * ------------------------------------------------------------------- */
+
+ .s-about__content-bottom .btn--download {
+    background-color: white;
+    border-color: white;
+    color: black;
+    margin-right: 0;
+}
+
+.s-about__content-bottom .btn--download svg {
+    height: 2rem;
+    width: 2rem;
+    vertical-align: middle;
+    margin-right: 1.2rem;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.s-about__content-bottom .btn--download:hover, 
+.s-about__content-bottom .btn--download:focus {
+    background-color: var(--color-2);
+    border-color: var(--color-2);
+}
+
+.s-about__content-bottom .btn--download:hover svg path, 
+.s-about__content-bottom .btn--download:focus svg path {
+    fill: white;
+}
+
+@media screen and (max-width: 600px) {
+    .s-about__content-bottom .btn--download {
+        margin-top: var(--vspace-0_5);
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .s-about__content-bottom .btn--download svg {
+        display: none;
+    }
+}
+
+.cta-content .btn {
+    max-width: 600px;
+}
+
+.contact-infos .btn {
+    margin-top: var(--vspace-0_75);
+}
+
+/* buttons.css */
+/* buttons.css */
+
+.status-pill {
+  display: inline-block;
+  margin-left: 2rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: transparent;
+  border-radius: 999px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  border: 2px solid rgba(85, 107, 47, 0.7); /* verde oliva */
+  overflow: hidden;
+}
+
+/* Pseudo-elemento que crea solo el anillo animado */
+.status-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;               /* ocupa todo el área del botón */
+  padding: 2px;           /* grosor del anillo */
+  border-radius: inherit; /* mismo radio que el botón */
+  background: conic-gradient(
+    from 0deg,
+    #55ff6e 0deg,
+    transparent 90deg,
+    #55ff6e 180deg,
+    transparent 270deg,
+    #55ff6e 360deg
+  );
+  /* recorta todo excepto ese anillo de 2px */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: spin-border 4s linear infinite;
+  z-index: -1;
+}
+
+/* animación de rotación */
+@keyframes spin-border {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
