@@ -162,45 +162,58 @@
 
 /* -------------------------------------------------------------------
  * ## Ajustes para móviles (<768px)
- * ------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  .s-hero {
-    height: auto;
-    min-height: 100vh;
+ * ------------------------------------------------------------------- 
+ */
+
+ @media (max-width: 768px) {
+  /* Espacio extra entre botón y nombre */
+  .s-hero__content-about .glow-on-hover {
+    margin-bottom: 1.6rem;
   }
 
-  .s-hero__content {
-    /* Subimos el contenido reduciendo padding-top */
-    padding: 20vh 1rem 8vh;
-  }
-
-  .s-hero__content-about {
-    margin-left: 1rem;
-    max-width: 100%;
-  }
-
-  .s-hero__content h1.nombre {
-    /* Tamaño un poco más pequeño y permitir saltos de línea */
-    font-size: clamp(2.2rem, 6vw + 1rem, 5rem);
-    margin-top: 0.25rem;
-    white-space: normal;
-  }
-
+  /* Texto h3 más pequeño y justificado */
   .s-hero__content h3.about {
-    /* Reducido un 10% respecto al tamaño original */
-    font-size: clamp(1.9rem, 2.9vw + 1.2rem, 2.8rem);
-    margin-bottom: 1rem;
-    max-width: 100%;
-    text-align: left;
-  }
-
-  .s-hero__content-social {
+    font-size: clamp(1.8rem, 2.8vw + 1rem, 2.7rem); /* 10% más pequeño */
+    text-align: justify;
     margin-bottom: 1.5rem;
-    gap: 0.75rem;
   }
 
-  .boton--download {
-    font-size: 1rem;
-    padding: 0.3rem 0.8rem;
+  /* Iconos sociales más grandes y más separados */
+  .s-hero__content-social {
+    font-size: clamp(2.8rem, 4vw, 3rem); /* aumentamos tamaño */
+    gap: 1.8rem; /* mayor separación entre íconos */
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
   }
+
+  /* Ajuste al botón de descarga en línea con íconos más grandes */
+  .boton--download {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+ /* Flecha superior delgada */
+.scroll-arrow-up {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  animation: fadeUpDown 2.5s ease-in-out infinite;
+}
+
+/* Animación de opacidad al texto "Scroll Down" */
+.s-hero__scroll-link .scroll-text {
+  animation: pulseOpacity 2.5s ease-in-out infinite;
+}
+
+/* Animación de opacidad */
+@keyframes pulseOpacity {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 1; }
+}
+
+/* Animación de la flecha subiendo y bajando sutilmente */
+@keyframes fadeUpDown {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%      { transform: translateY(-5px); opacity: 1; }
 }
