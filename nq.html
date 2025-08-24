@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso con Clave</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #interfaz {
+        display: none;
+        text-align: center;
+        border: 2px solid white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        width: 100%;
+    }
+    input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+        width: 80%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        width: 50%;
+    }
+    botones{
+        color: white;
+
+
+    }
+</style>
+</head>
+<body>
+
+<div id="login">
+    <h2>Ingrese la clave</h2>
+    <input type="password" id="clave" placeholder="Clave">
+    <br>
+    <button onclick="verificarClave()">Entrar</button>
+</div>
+
+<div id="acceso">
+    <button class="Botones">Prueba</button>
+    <button class="Botones">Prueba2</button>
+</div>
+
+<script>
+async function verificarClave() {
+    const clave = document.getElementById('clave').value;
+
+    try {
+        const res = await fetch('/verificar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ clave })
+        });
+
+        const data = await res.json();
+
+        if(data.acceso){
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('interfaz').style.display = 'block';
+            document.body.style.backgroundColor = "#200020"; // cambia el fondo
+        } else {
+            alert("Clave incorrecta");
+}
+
+    } catch(err) {
+        console.error(err);
+        alert("Error de conexión con el servidor");
+    }
+}
+</script>
+
+</body>
+</html>
